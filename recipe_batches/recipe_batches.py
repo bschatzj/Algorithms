@@ -1,9 +1,23 @@
-#!/usr/bin/python
 
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  batches={}
+  max_batches = 10000
+
+  for i in recipe:
+    try:
+      #floor devision!!!! WOW THIS TOOK ME WAY TOO LONG TO FIND!!!
+      batches[i] = ingredients[i] // recipe[i]
+    except:
+      max_batches = 0
+    
+    for i in batches.values():
+      if i < max_batches:
+        max_batches = i
+  
+  return max_batches
+    
 
 
 if __name__ == '__main__':

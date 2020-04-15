@@ -6,9 +6,18 @@ from collections import namedtuple
 Item = namedtuple('Item', ['index', 'size', 'value'])
 
 def knapsack_solver(items, capacity):
-  pass
-  
+  answer = []
+  efficiencies = []
+  for item in items:
+    if item.size < capacity:
+      efficiency = item.value / item.size
+      efficiencies.append((efficiency, item.index))
 
+  efficiencies.sort(reverse=True)
+  print(efficiencies)
+
+
+  return answer
 if __name__ == '__main__':
   if len(sys.argv) > 1:
     capacity = int(sys.argv[2])
